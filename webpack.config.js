@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   entry: './index.js',
   mode: 'development',
@@ -31,7 +33,7 @@ module.exports = {
         }, {
             loader: "sass-loader",
             options: {
-                includePaths: ["absolute/path/a", "absolute/path/b"]
+                includePaths: [ path.resolve(__dirname, "./src/style") ]
             }
         }]
       }

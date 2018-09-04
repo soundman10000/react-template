@@ -1,3 +1,6 @@
-.container{
-  background-color: red;
+@import 'theme';
+
+.container {
+  font-family: $font-family;
+  color: $primary-text-color;
 }

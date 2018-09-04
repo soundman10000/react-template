@@ -1,0 +1,50 @@
+
+/* Font Family */
+$font-family: 'Open Sans', 'Roboto', 'SF-UI', 'San Francisco', Helvetica,
+  Arial, sans-serif;
+$monospace-font: 'Fira Mono', monospace;
+$print-family: Helvetica, Arial, sans-serif;
+
+/* Font Sizes */
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-mdl: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2rem;
+$font-size-xxxl: 2.25rem;
+
+/* Font Weights */
+$font-thin: 300;
+$font-normal: 400;
+$font-bold: 600;
+
+/**
+  * Margin and Padding
+  * Should be multiples of 4 to maintain vertical rythm
+  */
+$margin-floor: 4px;
+$margin-xs: 8px;
+$margin-sm: 12px;
+$margin-md: 16px;
+$margin-lg: 20px;
+$margin-xl: 24px;
+$margin-xxl: 32px;
+$pad-floor: 4px;
+$pad-xs: 8px;
+$pad-sm: 12px;
+$pad-md: 16px;
+$pad-lg: 20px;
+$pad-xl: 24px;
+$pad-xxl: 32px;
+
+/* Line height */
+$base-line-height: 1.5;
+$text-line-height: 1.375;
+$heading-line-height: 1.2;
+
+
+$primary-text-color: #7DAED7;
+
+$primary-background-color: #2D3E50;
