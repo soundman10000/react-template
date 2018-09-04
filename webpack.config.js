@@ -1,5 +1,6 @@
 module.exports = {
   entry: './index.js',
+  mode: 'development',
 
   output: {
     filename: 'bundle.js',
@@ -11,8 +12,29 @@ module.exports = {
     port: 3000
   },
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+    rules: [
+      { test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+            loader: "style-loader"
+        }, {
+            loader: "css-loader"
+        }, {
+            loader: "sass-loader",
+            options: {
+                includePaths: ["absolute/path/a", "absolute/path/b"]
+            }
+        }]
+      }
     ]
   }
 }
