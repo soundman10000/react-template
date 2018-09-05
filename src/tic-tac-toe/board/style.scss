@@ -1,5 +1,6 @@
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+.board{
+  display: inline-block;
+  min-width: 300px;
+  max-width: 300px;
 }
+

@@ -4,6 +4,6 @@ import { Board } from './board/board'
 
 export default React.createClass({
   render(){
-    return <Board />
+    return <div className="table"><Board /></div>
   }
 })

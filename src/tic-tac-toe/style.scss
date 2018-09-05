@@ -1,5 +1,8 @@
 @import 'theme';
 
-.container{
-
+.table{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding-top: $pad-md;
 }

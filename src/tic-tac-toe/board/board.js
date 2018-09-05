@@ -14,12 +14,11 @@ export class Board extends React.Component {
     const status = 'Next player: X';
 
     return (
-      <div>
-      <ul>
-
-  </ul>
+      <div className="container">
         <div className="status">{status}</div>
-        { squares.map(this.renderSquare) }
+        <div className="board">
+          { squares.map(this.renderSquare) }
+        </div>
       </div>
     )
   }
