@@ -28,6 +28,7 @@
   a:after {
     content: '';
     display: block;
+    margin-bottom: 0 - 3px;
     border-bottom: 3px solid $primary-background-color;
     width: 0;
     -webkit-transition: 0.5s ease;
@@ -42,6 +43,7 @@
 .home{
   display: inline-block;
   width: 45px;
+  padding-bottom: 3px;
   text-align: center;
 }
 
@@ -53,5 +55,5 @@
 }
 
 .active{
-  color: green;
+  border-bottom: 3px solid $primary-background-color;
 }
