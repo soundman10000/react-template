@@ -2,10 +2,41 @@
 
 .menu{
   background-color: $primary-background-alternate;
+  line-height: 35px;
+  padding: $pad-floor;
+  font-size: $font-size-lg;
+  a:link {
+    -webkit-transition: background-color .5s, -webkit-transform .5s;
+    transition: background-color .5s, transform .5s;
+    color: $primary-text-color;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: $primary-text-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: #61519C;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
 }
 
-.item{
+.home{
+  display: inline-block;
+  width: 45px;
+  text-align: center;
+}
 
+.item {
+  display: inline-block;
+  span {
+    padding: 0 $pad-floor;
+  }
 }
 
 .active{

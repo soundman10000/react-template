@@ -1,12 +1,13 @@
 import React from 'react'
 import './style.scss'
 import { Link } from 'react-router'
+import "font-awesome/scss/font-awesome.scss";
 
 export default React.createClass({
   render() {
     return <div className="menu">
-      <Link className="item" to="">Home</Link>
-      <Link className="item" activeClassName="active" to="ttt">Tic Tac Toe</Link>
+      <Link className="home" to=""><i className="fa fa-fw fa-home"></i></Link>
+      <Link className="item" activeClassName="active" to="ttt"><span>Tic Tac Toe</span></Link>
     </div>
   }
 })
