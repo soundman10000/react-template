@@ -13,6 +13,14 @@ module.exports = {
     contentBase: './',
     port: 3000
   },
+  resolve: {
+   extensions: ['.js'],
+   alias: {
+      'stores': path.resolve(__dirname, 'src/stores/index.js'),
+      'lib': path.resolve(__dirname, 'src/lib/index.js'),
+      'actions': path.resolve(__dirname, 'src/actions/index.js'),
+    },
+  },
   module: {
     rules: [
       { test: /\.js$/,

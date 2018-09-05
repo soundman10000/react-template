@@ -2,9 +2,11 @@ import React from 'react'
 import './style.scss'
 import { Square } from './square/square'
 import { range } from 'ramda'
+import { TicTacToeActions } from 'actions'
 
 export class Board extends React.Component {
   constructor(props){
+    console.log(TicTacToeActions);
     super(props)
     this.state = {
       board: Array(9).fill(null),
@@ -13,10 +15,6 @@ export class Board extends React.Component {
 
   renderSquare(square, i){
     return <Square value={square} key={i} />
-  }
-
-  shouldComponentUpdate(){
-    console.log('test');
   }
 
   render(){

@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.scss'
+import Alt from 'lib'
 
 export class Square extends React.Component {
   constructor(props){
