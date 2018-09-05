@@ -5,6 +5,7 @@
   line-height: 35px;
   padding: $pad-floor;
   font-size: $font-size-lg;
+
   a:link {
     -webkit-transition: background-color .5s, -webkit-transform .5s;
     transition: background-color .5s, transform .5s;
@@ -18,11 +19,23 @@
   }
 
   a:hover {
-    background-color: #61519C;
   }
 
   a:active {
     text-decoration: none;
+  }
+
+  a:after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid $primary-background-color;
+    width: 0;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+  }
+
+  a:hover:after {
+    width: 100%;
   }
 }
 
