@@ -10,13 +10,9 @@ export class Square extends React.Component {
     }
   }
 
-  checkBox(value){
-    this.setState({value})
-  }
-
   render(){
     return (
-      <button onClick={() => this.checkBox('X')} className="square">
+      <button onClick={() => this.props.click()} className="square">
         {this.state.value}
       </button>
     )

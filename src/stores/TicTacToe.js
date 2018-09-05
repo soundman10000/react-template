@@ -3,22 +3,22 @@ import { TicTacToeActions } from 'actions'
 
 class TicTacToeStore {
   constructor(){
-    let {addTask, removeTask } = TicTacToeActions
+    let { updateGame } = TicTacToeActions
+
+    this.state = {
+      board: Array(9).fill(null),
+    }
 
     this.bindListeners({
-      add: addTask,
-      remove: removeTask
+      update: updateGame,
     })
-
-    this.state = new Set()
   }
 
-  add(task){
-    return this.setState(this.state.add(task))
-  }
-
-  remove(taskId){
-    console.log('todo');
+  update(i){
+    const squares = this.state.board.slice();
+    squares[i] = 'X';
+    this.setState({board: squares});
+    console.log(this.state.board);
   }
 }
 

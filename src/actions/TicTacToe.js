@@ -1,8 +1,9 @@
 import AltInstance from 'lib'
 
 class TicTacToeActions {
-  addTask(content) { this.dispatch({ id: 'jason', content})}
-  removeTask(taskId) {this.dispatch(taskId)}
+  updateGame(selection){
+    return selection
+  }
 }
 
 export default AltInstance.createActions(TicTacToeActions)
