@@ -5,12 +5,10 @@ import Menu from './menu/menu'
 
 export default React.createClass({
   render(){
-    return (
-      <div className="container">
+    return <div className="container">
         <Heading />
         <Menu />
         {this.props.children}
       </div>
-    )
   }
 })
