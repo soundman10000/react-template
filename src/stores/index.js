@@ -1,1 +1,3 @@
-// export * from './TicTacToe.js'
+import TicTacToeStore from './TicTacToe.js'
+
+export { TicTacToeStore }

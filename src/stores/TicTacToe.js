@@ -1,16 +1,16 @@
 import AltInstance from 'lib'
-import { TicTacToeActions } from 'lib'
+import { TicTacToeActions } from 'actions'
 
 class TicTacToeStore {
   constructor(){
-    // let {addTask, removeTask } = Actions
-    //
-    // this.bindListeners({
-    //   add: addTask,
-    //   remove: removeTask
-    // })
-    //
-    // this.state = new Set()
+    let {addTask, removeTask } = TicTacToeActions
+
+    this.bindListeners({
+      add: addTask,
+      remove: removeTask
+    })
+
+    this.state = new Set()
   }
 
   add(task){

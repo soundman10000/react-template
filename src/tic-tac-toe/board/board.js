@@ -2,11 +2,11 @@ import React from 'react'
 import './style.scss'
 import { Square } from './square/square'
 import { range } from 'ramda'
-import { TicTacToeActions } from 'actions'
+import { TicTacToeStore } from 'stores'
 
 export class Board extends React.Component {
   constructor(props){
-    console.log(TicTacToeActions);
+    console.log(TicTacToeStore);
     super(props)
     this.state = {
       board: Array(9).fill(null),
