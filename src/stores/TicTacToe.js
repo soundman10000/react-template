@@ -1,6 +1,8 @@
 import AltInstance from 'lib'
 import { TicTacToeActions } from 'actions'
-import { adjust, isNil, not } from 'ramda'
+import { adjust, isNil, find, map, compose, propEq, prop } from 'ramda'
+
+const getSymbol = players => id => compose(prop('symbol'), find(propEq('id', id)))(players)
 
 class TicTacToeStore {
   constructor(){
@@ -18,16 +20,30 @@ class TicTacToeStore {
     this.state.game = newGame
   }
 
-  update({square, value}){
-    var squares = this.state.game.board
+  changePlayer(){
+    var nextPlayer = find(z => z.id !== this.state.game.currentPlayer.id)(this.state.game.players)
+    this.state.game.currentPlayer = nextPlayer
+  }
 
-    if(not(isNil(squares[square]))){
+  reconcileBoard(){
+    var newBoard = Array(9).fill(null)
+    for (var i = 0; i < this.state.game.turns.length; i++) {
+      var turn = this.state.game.turns[i]
+      var symbol = getSymbol(this.state.game.players)(turn.playerid)
+      newBoard = adjust(z => z = symbol, turn.square, newBoard)
+    }
+
+    this.state.game.board = newBoard
+  }
+
+  update(turn){
+    if(!isNil(this.state.game.board[turn.square])){
       return
     }
 
-    this.state.game.board = adjust(z => z = value, square, squares)
-    this.state.game.last = value
-    this.state.game.turn++
+    this.state.game.turns.push(turn)
+    this.reconcileBoard()
+    this.changePlayer()
   }
 }
 

@@ -12,16 +12,8 @@ export class Board extends Component {
     this.state = TicTacToeStore.getState()
   }
 
-  get NextPlayer(){
-    return this.state.game.last === 'X' ? 'O' : 'X'
-  }
-
-  get IsCompleted() {
-    return this.state.game.turn === 10
-  }
-
   renderSquare(square, i){
-    return <Square value={square} key={i} square={i} next={this.NextPlayer} />
+    return <Square value={square} key={i} square={i} player={this.state.game.currentPlayer.id} />
   }
 
   componentDidMount() {
@@ -40,8 +32,8 @@ export class Board extends Component {
   render(){
     return (
       <div ref="container" className="container">
-        <div className="status">Next Player: { this.NextPlayer }</div>
-        <div className="turn">Turn: { this.state.game.turn }</div>
+        <div className="status">Player Up: { this.state.game.currentPlayer.name }</div>
+        <div className="turn">Turn: { this.state.game.turns.length }</div>
         <div className="board">
           { this.state.game.board.map((square, ind) => this.renderSquare(square, ind)) }
           <ResetGame />

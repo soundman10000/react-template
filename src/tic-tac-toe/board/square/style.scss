@@ -1,5 +1,5 @@
 
-$square-size: 101px;
+$square-size: 100px;
 
 .square {
   background: #fff;
@@ -17,12 +17,4 @@ $square-size: 101px;
   &:hover{
     cursor: pointer;
   }
-}
-
-.square:focus {
-  outline: none;
-}
-
-.kbd-navigation .square:focus {
-  background: #ddd;
 }

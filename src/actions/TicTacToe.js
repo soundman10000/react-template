@@ -1,11 +1,22 @@
 import AltInstance from 'lib'
+import { compose, range, map, head } from 'ramda'
+
+const newPlayer = id => ({
+    id,
+    name: 'Player ' + (id + 1),
+    symbol: id % 2 === 0 ? 'X' : 'O'
+  })
+
+const createNewPlayers = compose(map(newPlayer), range(0));
 
 class TicTacToeActions {
   createGame(){
+    var players = createNewPlayers(2)
     return ({
       board: Array(9).fill(null),
-      last: 'O', //this will default to 'X' for firstPlayer,
-      turn: 1,
+      turns: [],
+      players,
+      currentPlayer: head(players)
     })
   }
 
@@ -13,8 +24,8 @@ class TicTacToeActions {
     return this.createGame()
   }
 
-  updateGame(square, value) {
-    return { square, value }
+  updateGame(playerid, square) {
+    return { playerid, square }
   }
 }
 
