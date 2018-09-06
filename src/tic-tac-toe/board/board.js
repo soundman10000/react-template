@@ -44,8 +44,9 @@ export class Board extends Component {
         <div className="turn">Turn: { this.state.game.turn }</div>
         <div className="board">
           { this.state.game.board.map((square, ind) => this.renderSquare(square, ind)) }
+          <ResetGame />
         </div>
-        <ResetGame />
+
       </div>
     )
   }
