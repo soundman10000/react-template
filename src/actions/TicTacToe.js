@@ -1,12 +1,20 @@
 import AltInstance from 'lib'
 
 class TicTacToeActions {
-  resetGame(thing){
-    return thing
+  createGame(){
+    return ({
+      board: Array(9).fill(null),
+      last: 'O', //this will default to 'X' for firstPlayer,
+      turn: 1,
+    })
   }
 
-  updateGame(selection){
-    return selection
+  resetGame() {
+    return this.createGame()
+  }
+
+  updateGame(square, value) {
+    return { square, value }
   }
 }
 

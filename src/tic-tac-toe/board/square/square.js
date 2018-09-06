@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './style.scss'
-import Alt from 'lib'
+import { TicTacToeActions } from 'actions'
 
 export class Square extends React.Component {
   constructor(props){
@@ -12,7 +12,7 @@ export class Square extends React.Component {
 
   render(){
     return (
-      <button onClick={() => this.props.click()} className="square">
+      <button onClick={() => TicTacToeActions.updateGame(this.props.square, this.props.next)} className="square">
         {this.props.value}
       </button>
     )

@@ -1,47 +1,33 @@
 import AltInstance from 'lib'
 import { TicTacToeActions } from 'actions'
+import { adjust, isNil, not } from 'ramda'
 
 class TicTacToeStore {
   constructor(){
-    let { updateGame, resetGame } = TicTacToeActions
-
     this.state = {
-      board: Array(9).fill(null),
-      last: 'O', //this will default to 'X' for firstPlayer,
-      turn: 1,
-      gameOver: false,
+      game: TicTacToeActions.createGame()
     }
 
     this.bindListeners({
-      update: updateGame,
-      reset: resetGame
+      update: TicTacToeActions.updateGame,
+      reset: TicTacToeActions.resetGame
     })
   }
 
-  reset(){
-    this.state.board = Array(9).fill(null)
-    this.state.turn = 1
-    this.state.gameOver = false
-    this.state.last = 'O'
+  reset(newGame){
+    this.state.game = newGame
   }
 
-  update(i){
-    const squares = this.state.board.slice();
+  update({square, value}){
+    var squares = this.state.game.board
 
-    if(squares[i] !== null){
+    if(not(isNil(squares[square]))){
       return
     }
 
-    squares[i] = this.state.last === 'X' ? 'O' : 'X';
-    this.state.board = squares
-    this.state.last = squares[i]
-
-    if(this.state.turn === 9){
-      this.state.gameOver = true
-      return
-    }
-
-    this.state.turn++
+    this.state.game.board = adjust(z => z = value, square, squares)
+    this.state.game.last = value
+    this.state.game.turn++
   }
 }
 
