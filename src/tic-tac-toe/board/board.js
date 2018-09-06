@@ -12,6 +12,10 @@ export class Board extends React.Component {
     this.state = TicTacToeStore.getState()
   }
 
+  get NextPlayer(){
+    return this.state.last === 'X' ? 'O' : 'X'
+  }
+
   renderSquare(square, i){
     return <Square value={square} key={i} click={() => this.checkSquare(i)} />
   }
@@ -20,12 +24,18 @@ export class Board extends React.Component {
     TicTacToeActions.updateGame(number)
   }
 
-  render(){
-    const status = 'Next player: X';
+  componentDidMount() {
+    TicTacToeStore.listen(() => this.onChange());
+  }
 
+  onChange(){
+    this.setState(TicTacToeStore.getState())
+  }
+
+  render(){
     return (
       <div className="container">
-        <div className="status">{status}</div>
+        <div className="status">Next Player: {this.NextPlayer}</div>
         <div className="board">
           { this.state.board.map((square, ind) => this.renderSquare(square, ind)) }
         </div>

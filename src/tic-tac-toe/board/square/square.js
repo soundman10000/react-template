@@ -13,7 +13,7 @@ export class Square extends React.Component {
   render(){
     return (
       <button onClick={() => this.props.click()} className="square">
-        {this.state.value}
+        {this.props.value}
       </button>
     )
   }

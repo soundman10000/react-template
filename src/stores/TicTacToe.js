@@ -7,6 +7,7 @@ class TicTacToeStore {
 
     this.state = {
       board: Array(9).fill(null),
+      last: 'O' //this will default to 'X' for firstPlayer
     }
 
     this.bindListeners({
@@ -16,9 +17,14 @@ class TicTacToeStore {
 
   update(i){
     const squares = this.state.board.slice();
-    squares[i] = 'X';
-    this.setState({board: squares});
-    console.log(this.state.board);
+
+    if(squares[i] !== null){
+      return
+    }
+
+    squares[i] = this.state.last === 'X' ? 'O' : 'X';
+    this.state.board = squares
+    this.state.last = squares[i]
   }
 }
 
