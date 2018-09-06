@@ -11,8 +11,8 @@ class TicTacToeStore {
     }
 
     this.bindListeners({
-      update: TicTacToeActions.updateGame,
-      reset: TicTacToeActions.resetGame
+      update: TicTacToeActions.UPDATE_GAME,
+      reset: TicTacToeActions.RESET_GAME,
     })
   }
 

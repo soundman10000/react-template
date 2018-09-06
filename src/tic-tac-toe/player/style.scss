@@ -1,0 +1,22 @@
+@import "theme";
+
+.player{
+  display: inline-block;
+  width: 300px;
+  vertical-align: top;
+  color: $primary-text-color;
+  font-size: $font-size-xl;
+  background-color: $primary-background-alternate;
+  margin: 0 $margin-sm;
+
+  h4 {
+    margin: 0;
+    padding: $pad-sm;
+  }
+
+  .text{
+    display: inline-block;
+    padding-bottom: $pad-floor;
+    width: 250px;
+  }
+}
