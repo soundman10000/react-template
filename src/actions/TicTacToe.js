@@ -1,6 +1,10 @@
 import AltInstance from 'lib'
 
 class TicTacToeActions {
+  resetGame(thing){
+    return thing
+  }
+
   updateGame(selection){
     return selection
   }

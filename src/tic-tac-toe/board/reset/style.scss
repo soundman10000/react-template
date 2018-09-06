@@ -1,0 +1,28 @@
+
+$square-size: 100px;
+
+.reset {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: $square-size;
+  height: $square-size;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: $square-size;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
