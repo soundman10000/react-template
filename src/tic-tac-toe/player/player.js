@@ -14,6 +14,10 @@ export class Player extends Component{
     return find(z => z.id === this.props.id)(this.state.game.players)
   }
 
+  get IsCurrentPlayer(){
+    return this.props.id === this.state.game.currentPlayer.id
+  }
+
   componentDidMount() {
     TicTacToeStore.listen(() => this.onChange())
   }
@@ -28,7 +32,7 @@ export class Player extends Component{
 
   render(){
     return <div className="player">
-      <h4><span className="text">{this.Player.name}</span></h4>
+      <h4><span className= { this.IsCurrentPlayer ? 'underline' : 'text' }>{ this.Player.name }</span></h4>
     </div>
   }
 }
