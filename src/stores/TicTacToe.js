@@ -40,7 +40,7 @@ class TicTacToeStore {
     if(!isNil(this.state.game.board[turn.square])){
       return
     }
-
+    
     this.state.game.turns.push(turn)
     this.reconcileBoard()
     this.changePlayer()

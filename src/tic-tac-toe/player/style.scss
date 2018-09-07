@@ -21,6 +21,12 @@
   }
 }
 
+.turnContainer{
+  background-color: $background-white;
+  margin: $margin-floor;
+  height: 325px;
+}
+
 .underline {
   display: inline-block;
   position: relative;
@@ -41,4 +47,43 @@
   to {
     width: 250px;
   }
+}
+
+.move{
+  display: inline-block;
+  width: 100%;
+  color: $primary-background-color;
+}
+
+.info {
+  width: 100%;
+  padding: $pad-sm 0;
+  display: inline-block;
+  background-color: #fff;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.info:hover {
+  cursor: pointer;
+  background-color: $primary-background-alternate-reverse;
+  color: $primary-text-color;
+}
+
+.info:hover::after {
+    opacity: 1;
+}
+
+.turn {
+  float: left;
+  width: 35px;
+  border-radius: 50%;
+  margin-left: $margin-xs;
+  border: 2px solid;
+  text-align: center;
+  font-family: $font-family;
+}
+
+.sqaure{
+  padding-right: $pad-xxl;
 }
