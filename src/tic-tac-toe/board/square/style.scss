@@ -4,11 +4,8 @@ $square-size: 100px;
 
 .square {
   background: #fff;
-  color: #A4238A;
   border: 1px solid #999;
   float: left;
-  font-size: $font-size-xxxl;
-  font-weight: bold;
   line-height: $square-size;
   height: $square-size;
   margin-right: -1px;
@@ -21,21 +18,20 @@ $square-size: 100px;
   }
 }
 
-.squareAlt {
-  background: #fff;
-  color: #F35A21;
-  border: 1px solid #999;
-  float: left;
-  font-size: $font-size-xxxl;
-  font-weight: bold;
-  line-height: $square-size;
-  height: $square-size;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: $square-size;
-  &:hover{
-    cursor: pointer;
+@keyframes scale {
+  0% {
+    font-size: 1rem;
+  }
+  25% {
+    font-size: 2rem;
+  }
+  50% {
+    font-size: 3rem;
+  }
+  75% {
+    font-size: 4rem;
+  }
+  100%{
+    font-size: 5rem;
   }
 }
