@@ -10,7 +10,6 @@
   margin: 0 $margin-sm;
 
   h4 {
-    margin: 0;
     padding: $pad-sm;
   }
 
@@ -24,7 +23,7 @@
 .turnContainer{
   background-color: $background-white;
   margin: $margin-floor;
-  height: 325px;
+  height: 305px;
 }
 
 .underline {
@@ -86,4 +85,15 @@
 
 .sqaure{
   padding-right: $pad-xxl;
+}
+
+.banner{
+  margin: 2px;
+}
+
+.bannerWin{
+  margin: 2px;
+  transition: background-color 0.5s ease;
+  background-color: $success-color;
+  color: $success-darker-color;
 }

@@ -17,7 +17,8 @@ class TicTacToeActions {
       board: Array(9).fill(null),
       turns: [],
       players,
-      currentPlayer: head(players)
+      currentPlayer: head(players),
+      winner: null,
     })
   }
 

@@ -8,12 +8,13 @@ export class Square extends Component {
     super(props)
     this.style = {
       checked:{
-        animation: 'scale .2s both'
+        animation: 'scale .2s ease-in both'
       },
       notChecked: {},
       color: {},
     }
   }
+  
   get IsChecked(){
     return !isNil(this.props.value)
   }

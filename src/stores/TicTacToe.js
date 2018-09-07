@@ -1,8 +1,7 @@
 import AltInstance from 'lib'
 import { TicTacToeActions } from 'actions'
 import { adjust, isNil, find, map, compose, propEq, prop } from 'ramda'
-
-const getSymbol = id => compose(prop('symbol'), find(propEq('id', id)))
+import { getSymbol, calculateWinner } from './model'
 
 class TicTacToeStore {
   constructor(){
@@ -34,10 +33,13 @@ class TicTacToeStore {
     }
 
     this.state.game.board = newBoard
+    if(calculateWinner(this.state.game.board)){
+      this.state.game.winner = this.state.game.currentPlayer
+    }
   }
 
   update(turn){
-    if(!isNil(this.state.game.board[turn.square])){
+    if(!isNil(this.state.game.board[turn.square]) || !isNil(this.state.game.winner)){
       return
     }
 

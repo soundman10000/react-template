@@ -22,6 +22,14 @@ export class Player extends Component{
     return filter(propEq('playerid', this.props.id))(this.state.game.turns)
   }
 
+  get PlayerIsWinner(){
+    if(!this.state.game.winner){
+      return
+    }
+    
+    return this.state.game.winner.id === this.props.id
+  }
+
   componentDidMount() {
     TicTacToeStore.listen(() => this.onChange())
   }
@@ -46,7 +54,9 @@ export class Player extends Component{
 
   render(){
     return <div className="player">
-      <h4><span className= { this.IsCurrentPlayer ? 'underline' : 'text' }>{ this.Player.name }</span></h4>
+      <h4 className={ this.PlayerIsWinner ? 'bannerWin' : 'banner' }>
+        <span className= { this.IsCurrentPlayer ? 'underline' : 'text' }>{ this.Player.name }</span>
+      </h4>
       <div className="turnContainer">
         { this.PlayerTurns.map((turn, ind) => this.renderTurn(turn, ind)) }
       </div>
