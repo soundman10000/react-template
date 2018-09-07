@@ -1,4 +1,4 @@
-import { compose, prop, propEq, find } from 'ramda'
+import { compose, prop, propEq, find, adjust } from 'ramda'
 
 export const getSymbol = id => compose(prop('symbol'), find(propEq('id', id)))
 
@@ -21,4 +21,12 @@ export const calculateWinner = squares => {
     }
   }
   return null;
+}
+
+export const reconcileBoard = turns => players => {
+  var newBoard = Array(9).fill(null)
+  for (var i = 0; i < turns.length; i++) {
+    newBoard = adjust(z => z = getSymbol(turns[i].playerid)(players), turns[i].square, newBoard)
+  }
+  return newBoard
 }
