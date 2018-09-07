@@ -13,7 +13,11 @@ export class Board extends Component {
   }
 
   renderSquare(square, i){
-    return <Square value={square} key={i} square={i} player={this.state.game.currentPlayer.id} />
+    return <Square
+      value={square}
+      key={i}
+      square={i}
+      player={this.state.game.currentPlayer} />
   }
 
   componentDidMount() {

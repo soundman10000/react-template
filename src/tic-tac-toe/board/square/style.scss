@@ -1,11 +1,32 @@
+@import "theme";
 
 $square-size: 100px;
 
 .square {
   background: #fff;
+  color: #A4238A;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
+  font-size: $font-size-xxxl;
+  font-weight: bold;
+  line-height: $square-size;
+  height: $square-size;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: $square-size;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.squareAlt {
+  background: #fff;
+  color: #F35A21;
+  border: 1px solid #999;
+  float: left;
+  font-size: $font-size-xxxl;
   font-weight: bold;
   line-height: $square-size;
   height: $square-size;

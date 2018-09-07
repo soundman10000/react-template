@@ -4,7 +4,8 @@ import { compose, range, map, head } from 'ramda'
 const newPlayer = id => ({
     id,
     name: 'Player ' + (id + 1),
-    symbol: id % 2 === 0 ? 'X' : 'O'
+    symbol: id % 2 === 0 ? 'X' : 'O',
+    color: id % 2 === 0 ? '#F35A21' : '#A4238A',
   })
 
 const createNewPlayers = compose(map(newPlayer), range(0));

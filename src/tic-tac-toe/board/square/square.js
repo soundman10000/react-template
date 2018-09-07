@@ -1,15 +1,28 @@
 import React, { Component } from 'react'
 import './style.scss'
 import { TicTacToeActions } from 'actions'
+import { isNil } from 'ramda'
 
 export class Square extends Component {
-  constructor(props){
-    super(props)
+  get IsChecked(){
+    return !isNil(this.props.value)
+  }
+
+  click(){
+    if(this.IsChecked){
+      return
+    }
+
+    this.style = {
+      color: `${this.props.player.color}`
+    }
+
+    TicTacToeActions.updateGame(this.props.player.id, this.props.square)
   }
 
   render(){
     return (
-      <button onClick={() => TicTacToeActions.updateGame(this.props.player, this.props.square)} className="square">
+      <button onClick={ () => this.click() } className="square" style={this.style}>
         {this.props.value}
       </button>
     )
