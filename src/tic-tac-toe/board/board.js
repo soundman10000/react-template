@@ -16,6 +16,7 @@ export class Board extends Component {
     return <Square key={i}
       value={square}
       square={i}
+      winningSquares={this.state.game.winningSquares}
       player={this.state.game.currentPlayer}
       players={this.state.game.players} />
   }

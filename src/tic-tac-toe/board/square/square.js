@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.scss'
 import { TicTacToeActions } from 'actions'
-import { isNil, find, propEq } from 'ramda'
+import { isNil, find, propEq, contains } from 'ramda'
 
 export class Square extends Component {
   constructor(props){
@@ -14,6 +14,10 @@ export class Square extends Component {
       color: {},
     }
     this.checkedBy = null
+  }
+
+  get IsWinningSquare(){
+    return contains(this.props.square)(this.props.winningSquares)
   }
 
   componentDidUpdate(){
@@ -50,7 +54,7 @@ export class Square extends Component {
 
   render(){
     return (
-      <button onClick={ () => this.click() } className="square" style={this.style.color}>
+      <button onClick={ () => this.click() } className={this.IsWinningSquare ? "squareWinner" : "square"} style={this.style.color}>
         <span className="value" style= {
           this.IsChecked
             ? this.style.checked

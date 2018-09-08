@@ -17,7 +17,7 @@ export const calculateWinner = squares => {
   for (let i = 0; i < winners.length; i++) {
     const [a, b, c] = winners[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return { winner: squares[a], squares: [a, b, c] };
     }
   }
   return null;

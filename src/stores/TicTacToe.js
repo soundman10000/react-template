@@ -52,8 +52,10 @@ class TicTacToeStore {
     this.state.game.turns.push(turn)
     this.state.game.board = reconcileBoard(this.state.game.turns)(this.state.game.players)
 
-    if(calculateWinner(this.state.game.board)){
+    var winner = calculateWinner(this.state.game.board)
+    if(winner){
       this.state.game.winner = this.state.game.currentPlayer
+      this.state.game.winningSquares = winner.squares
       return
     }
 

@@ -19,6 +19,7 @@ class TicTacToeActions {
       players,
       currentPlayer: head(players),
       winner: null,
+      winningSquares: [],
     })
   }
 
@@ -27,6 +28,7 @@ class TicTacToeActions {
       board: Array(9).fill(null),
       turns: [],
       winner: null,
+      winningSquares: [],
     })
   }
 

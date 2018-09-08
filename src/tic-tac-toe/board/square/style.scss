@@ -2,7 +2,7 @@
 
 $square-size: 100px;
 
-.square {
+%square-shared{
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -16,6 +16,15 @@ $square-size: 100px;
   &:hover{
     cursor: pointer;
   }
+}
+
+.square{
+  @extend %square-shared;
+}
+
+.squareWinner{
+  @extend %square-shared;
+  background-color: $success-lighter-color;
 }
 
 @keyframes scale {
