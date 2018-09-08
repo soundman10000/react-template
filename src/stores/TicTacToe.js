@@ -13,6 +13,7 @@ class TicTacToeStore {
       update: TicTacToeActions.UPDATE_GAME,
       reset: TicTacToeActions.RESET_GAME,
       updatePlayerName: TicTacToeActions.UPDATE_PLAYER_NAME,
+      updatePlayerSymbol: TicTacToeActions.UPDATE_PLAYER_SYMBOL,
     })
   }
 
@@ -24,6 +25,12 @@ class TicTacToeStore {
   updatePlayerName(e){
     var player = getPlayer(e.playerId)(this.state.game.players)
     player.name = e.newName
+  }
+
+  updatePlayerSymbol(e){
+    var player = getPlayer(e.playerId)(this.state.game.players)
+    player.symbol = e.symbol
+    this.state.game.board = reconcileBoard(this.state.game.turns)(this.state.game.players)
   }
 
   changePlayer(){
