@@ -1,0 +1,11 @@
+@import "theme";
+
+.colorContainer{
+  display: inline-block;
+  width: 50%;
+  input {
+    border: none;
+    max-width: 120px;
+    width: 120px;
+  }
+}

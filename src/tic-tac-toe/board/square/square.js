@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.scss'
 import { TicTacToeActions } from 'actions'
-import { isNil } from 'ramda'
+import { isNil, find, propEq } from 'ramda'
 
 export class Square extends Component {
   constructor(props){
@@ -13,10 +13,29 @@ export class Square extends Component {
       notChecked: {},
       color: {},
     }
+    this.checkedBy = null
   }
-  
+
+  componentDidUpdate(){
+    if(!this.IsChecked){
+      return
+    }
+
+    var player = find(propEq('id', this.checkedBy))(this.props.players)
+    if(player.color !== this.style.color.color){
+      this.setStyleColor(player.color)
+      this.forceUpdate()
+    }
+  }
+
   get IsChecked(){
     return !isNil(this.props.value)
+  }
+
+  setStyleColor(color){
+    this.style.color = {
+      color: `${color}`,
+    }
   }
 
   click(){
@@ -24,10 +43,8 @@ export class Square extends Component {
       return
     }
 
-    this.style.color = {
-      color: `${this.props.player.color}`,
-    }
-
+    this.setStyleColor(this.props.player.color)
+    this.checkedBy = this.props.player.id
     TicTacToeActions.updateGame(this.props.player.id, this.props.square)
   }
 

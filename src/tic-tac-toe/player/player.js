@@ -5,6 +5,7 @@ import { TicTacToeStore } from 'stores'
 import { find, filter, propEq } from 'ramda'
 import { Name } from './name/name'
 import { Symbol } from './symbol/symbol'
+import { Color } from './color/color'
 
 export class Player extends Component{
   constructor(props){
@@ -59,6 +60,7 @@ export class Player extends Component{
     return <div className="player">
       <Name  PlayerIsWinner={ this.PlayerIsWinner } Player={ this.Player } IsCurrentPlayer={ this.IsCurrentPlayer } />
       <Symbol Player={ this.Player } />
+      <Color Player={ this.Player } />
       <div className="turnContainer">
         { this.PlayerTurns.map((turn, ind) => this.renderTurn(turn, ind)) }
       </div>

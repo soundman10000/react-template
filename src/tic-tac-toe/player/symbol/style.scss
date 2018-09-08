@@ -2,11 +2,13 @@
 
 .symbolContainer{
   height: 42px;
+  display: inline-block;
+  width: 50%;
   cursor: pointer;
 }
 
 .symbol{
-
+  padding-left: $pad-sm;
 }
 
 input {

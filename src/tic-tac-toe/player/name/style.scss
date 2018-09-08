@@ -13,15 +13,9 @@
 }
 
 .nameContainer{
-  height: 57px;
+  height: 65px;
   h4 {
     padding: $pad-sm;
-  }
-
-  .text{
-    display: inline-block;
-    padding-bottom: $pad-floor;
-    width: 250px;
   }
   input {
     max-width: 70%;
@@ -42,7 +36,7 @@
   &:after {
     position: absolute;
     content: '';
-    bottom: 30px;
+    bottom: 25px;
     left: -125px;
     height: 3px;
     width: 0%;

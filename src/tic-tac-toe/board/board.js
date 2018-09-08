@@ -16,7 +16,8 @@ export class Board extends Component {
     return <Square key={i}
       value={square}
       square={i}
-      player={this.state.game.currentPlayer} />
+      player={this.state.game.currentPlayer}
+      players={this.state.game.players} />
   }
 
   componentDidMount() {

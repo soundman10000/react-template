@@ -41,6 +41,10 @@ class TicTacToeActions {
   updatePlayerSymbol(playerId, symbol){
     return { playerId, symbol }
   }
+
+  updateColor(playerId, color){
+    return { playerId, color }
+  }
 }
 
 export default AltInstance.createActions(TicTacToeActions)

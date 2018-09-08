@@ -25,7 +25,7 @@ export class Symbol extends Component{
   }
 
   changeSymbol(){
-    TicTacToeActions.updatePlayerSymbol(this.props.Player.id, isEmpty(this.state.newSymbol) ? this.props.Player.name : this.state.newSymbol)
+    TicTacToeActions.updatePlayerSymbol(this.props.Player.id, isEmpty(this.state.newSymbol) ? this.props.Player.symbol : this.state.newSymbol)
     this.turnOffEdit()
   }
 
@@ -34,8 +34,8 @@ export class Symbol extends Component{
   }
 
   renderEdit(){
-    return <div>
-      <input autofocus="true" defaultValue={ this.props.Player.symbol } onChange={e => this.handleChange(e)} type="text"/>
+    return <div className="symbol">
+      <input maxLength="1" autofocus="true" defaultValue={ this.props.Player.symbol } onChange={e => this.handleChange(e)} type="text"/>
       <button className="btnConfirm" onClick={ () => this.changeSymbol() }><i className="fa fa-check"></i></button>
       <button className="btnCancel" onClick={ () => this.resetSymbol() }><i className="fa fa-times"></i></button>
     </div>

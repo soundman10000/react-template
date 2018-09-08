@@ -9,9 +9,7 @@
   background-color: $primary-background-alternate;
   margin: 0 $margin-sm;
 
-  h4 {
-    padding: $pad-sm;
-  }
+
 }
 
 .turnContainer{
@@ -19,8 +17,6 @@
   margin: $margin-floor;
   height: 305px;
 }
-
-
 
 .move{
   display: inline-block;
@@ -60,5 +56,3 @@
 .sqaure{
   padding-right: $pad-xxl;
 }
-
-

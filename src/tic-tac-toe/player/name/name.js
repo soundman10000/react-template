@@ -33,16 +33,23 @@ export class Name extends Component{
     this.setState({newName: e.target.value})
   }
 
+  renderUnderline(){
+    if (this.props.IsCurrentPlayer){
+      return <span className="underline"></span>
+    }
+  }
+
   renderStatic(){
     return <div><h4 onClick={ e => this.editName(e) } className={ this.props.PlayerIsWinner ? 'bannerWin' : 'banner' }>
         { this.props.Player.name }
       </h4>
-      <span className= { this.props.IsCurrentPlayer ? 'underline' : 'text' }></span></div>
+      { this.renderUnderline() }
+      </div>
   }
 
   renderEdit(){
     return <h4 className='banner'>
-        <input autofocus="true" defaultValue={ this.props.Player.name } onChange={e => this.handleChange(e)} type="text"/>
+        <input maxLength="20" autofocus="true" defaultValue={ this.props.Player.name } onChange={e => this.handleChange(e)} type="text"/>
         <button className="btnConfirm" onClick={ () => this.changeName() }><i className="fa fa-check"></i></button>
         <button className="btnCancel" onClick={ () => this.resetName() }><i className="fa fa-times"></i></button>
       </h4>
