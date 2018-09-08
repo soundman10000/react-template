@@ -1,4 +1,4 @@
-import { compose, prop, propEq, find, adjust } from 'ramda'
+import { compose, prop, propEq, find, adjust, not } from 'ramda'
 
 export const getSymbol = id => compose(prop('symbol'), find(propEq('id', id)))
 
@@ -30,3 +30,6 @@ export const reconcileBoard = turns => players => {
   }
   return newBoard
 }
+
+export const getPlayer = id => find(propEq('id', id))
+export const getNextPlayer = id => find(z => not(propEq('id', id)(z)))

@@ -1,7 +1,7 @@
 import AltInstance from 'lib'
 import { TicTacToeActions } from 'actions'
-import { isNil, find } from 'ramda'
-import { getSymbol, calculateWinner, reconcileBoard } from './model'
+import { isNil, find, merge, head } from 'ramda'
+import { calculateWinner, reconcileBoard, getPlayer, getNextPlayer } from './model'
 
 class TicTacToeStore {
   constructor(){
@@ -12,16 +12,22 @@ class TicTacToeStore {
     this.bindListeners({
       update: TicTacToeActions.UPDATE_GAME,
       reset: TicTacToeActions.RESET_GAME,
+      updatePlayerName: TicTacToeActions.UPDATE_PLAYER_NAME,
     })
   }
 
   reset(newGame){
-    this.state.game = newGame
+    this.state.game = merge(this.state.game, newGame)
+    this.state.game.currentPlayer = head(this.state.game.players)
+  }
+
+  updatePlayerName(e){
+    var player = getPlayer(e.playerId)(this.state.game.players)
+    player.name = e.newName
   }
 
   changePlayer(){
-    var nextPlayer = find(z => z.id !== this.state.game.currentPlayer.id)(this.state.game.players)
-    this.state.game.currentPlayer = nextPlayer
+    this.state.game.currentPlayer = getNextPlayer(this.state.game.currentPlayer.id)(this.state.game.players)
   }
 
   update(turn){

@@ -12,6 +12,7 @@
 }
 
 .nameContainer{
+  height: 57px;
   h4 {
     padding: $pad-sm;
   }
@@ -21,8 +22,18 @@
     padding-bottom: $pad-floor;
     width: 250px;
   }
+  input {
+    max-width: 70%;
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $primary-text-color;
+    border-radius: 0;
+    color: $primary-text-color;
+    font-size: $font-size-mdl;
+    line-height: $base-line-height;
+  }
 }
-
 .underline {
   display: inline-block;
   position: relative;
@@ -30,8 +41,8 @@
   &:after {
     position: absolute;
     content: '';
-    bottom: -4px;
-    left: -75px;
+    bottom: 34px;
+    left: -125px;
     height: 3px;
     width: 0%;
     background-color: $primary-background-color;
@@ -42,5 +53,57 @@
 @keyframes underline {
   to {
     width: 250px;
+  }
+}
+
+.btnConfirm{
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: $primary-text-color;
+  font-size: 24px;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  padding-left: $pad-floor;
+  margin-left: $margin-floor;
+  transition: background-color 0.2s,
+    color 0.2s;
+  &:hover,
+  &:active,
+  &:focus:not(:active) {
+    background: $success-color;
+    color: $success-darker-color;
+  }
+}
+
+.btnCancel{
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: $primary-text-color;
+  font-size: 24px;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  padding-left: 6px;
+  margin-left: $margin-floor;
+  transition: background-color 0.2s,
+    color 0.2s;
+  &:hover,
+  &:active,
+  &:focus:not(:active) {
+    background: $error-color;
+    color: $error-darker-color;
   }
 }

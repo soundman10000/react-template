@@ -23,11 +23,19 @@ class TicTacToeActions {
   }
 
   resetGame() {
-    return this.createGame()
+    return ({
+      board: Array(9).fill(null),
+      turns: [],
+      winner: null,
+    })
   }
 
   updateGame(playerid, square) {
     return { playerid, square }
+  }
+
+  updatePlayerName(playerId, newName){
+    return { playerId, newName }
   }
 }
 
