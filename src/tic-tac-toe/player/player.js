@@ -3,11 +3,13 @@ import './style.scss'
 import { TicTacToeActions } from 'actions'
 import { TicTacToeStore } from 'stores'
 import { find, filter, propEq } from 'ramda'
+import { Name } from './name/name'
 
 export class Player extends Component{
   constructor(props){
     super(props)
     this.state = TicTacToeStore.getState()
+    this.nameEdit = false
   }
 
   get Player(){
@@ -26,15 +28,15 @@ export class Player extends Component{
     if(!this.state.game.winner){
       return
     }
-    
+
     return this.state.game.winner.id === this.props.id
   }
 
-  componentDidMount() {
+  componentDidMount(){
     TicTacToeStore.listen(() => this.onChange())
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(){
     TicTacToeStore.unlisten(() => this.onChange())
   }
 
@@ -54,9 +56,7 @@ export class Player extends Component{
 
   render(){
     return <div className="player">
-      <h4 className={ this.PlayerIsWinner ? 'bannerWin' : 'banner' }>
-        <span className= { this.IsCurrentPlayer ? 'underline' : 'text' }>{ this.Player.name }</span>
-      </h4>
+      <Name  PlayerIsWinner={ this.PlayerIsWinner } Player={ this.Player } IsCurrentPlayer={ this.IsCurrentPlayer } />
       <div className="turnContainer">
         { this.PlayerTurns.map((turn, ind) => this.renderTurn(turn, ind)) }
       </div>

@@ -1,0 +1,46 @@
+@import "theme";
+
+.banner{
+  margin: 2px;
+}
+
+.bannerWin{
+  margin: 2px;
+  transition: background-color 0.5s ease;
+  background-color: $success-color;
+  color: $success-darker-color;
+}
+
+.nameContainer{
+  h4 {
+    padding: $pad-sm;
+  }
+
+  .text{
+    display: inline-block;
+    padding-bottom: $pad-floor;
+    width: 250px;
+  }
+}
+
+.underline {
+  display: inline-block;
+  position: relative;
+  padding-bottom: $pad-floor;
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: -4px;
+    left: -75px;
+    height: 3px;
+    width: 0%;
+    background-color: $primary-background-color;
+    animation: underline 500ms;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes underline {
+  to {
+    width: 250px;
+  }
+}

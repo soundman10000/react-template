@@ -13,9 +13,8 @@ export class Board extends Component {
   }
 
   renderSquare(square, i){
-    return <Square
+    return <Square key={i}
       value={square}
-      key={i}
       square={i}
       player={this.state.game.currentPlayer} />
   }
