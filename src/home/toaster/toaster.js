@@ -24,20 +24,17 @@ export class Toaster extends Component{
     this.setState(ToasterStore.getState())
     switch (this.state.messages[this.state.currentMessage - 1].status) {
       case 'SUCCESS':
-
         this.setStyleColor('#1E5121')
-        console.log(this.style);
         break
       case 'ERROR':
-        this.setStyleColor('#101010')
+        this.setStyleColor('#721c24')
         break
       default:
-        console.log('here');
         this.setStyleColor('#101010')
         break
     }
-    this.forceUpdate()
 
+    this.forceUpdate()
   }
 
   setStyleColor(color){
@@ -56,13 +53,12 @@ export class Toaster extends Component{
   }
 
   render(){
-    console.log(this.style);
     if(this.state.isOpen) {
         return <div className="toasterContainer" style={this.style}>
         <span className="actions">
-          <button className="prevBtn"><i className="fa fa-fw fa-chevron-left"/></button>
+          <button className="prevBtn" onClick={() => ToasterActions.changeMessage(false)} ><i className="fa fa-fw fa-chevron-left"/></button>
             {this.state.currentMessage} / {this.state.messages.length}
-          <button className="nextBtn"><i className="fa fa-fw fa-chevron-right"/></button>
+          <button className="nextBtn" onClick={() => ToasterActions.changeMessage(true)} ><i className="fa fa-fw fa-chevron-right"/></button>
         </span>
         { this.renderMesssages() }
         <button className="closeBtn" onClick={() => ToasterActions.toggleToaster(false)} ><i className="fa fa-fw fa-times"/></button>

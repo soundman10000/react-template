@@ -59,8 +59,7 @@ export class Player extends Component{
   render(){
     return <div className="player">
       <Name  PlayerIsWinner={ this.PlayerIsWinner } Player={ this.Player } IsCurrentPlayer={ this.IsCurrentPlayer } />
-      <Symbol Player={ this.Player } />
-      <Color Player={ this.Player } />
+      <Symbol Player={ this.Player } /><Color Player={ this.Player } />
       <div className="turnContainer">
         { this.PlayerTurns.map((turn, ind) => this.renderTurn(turn, ind)) }
       </div>

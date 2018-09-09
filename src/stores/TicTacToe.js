@@ -1,5 +1,5 @@
 import AltInstance from 'lib'
-import { TicTacToeActions } from 'actions'
+import { TicTacToeActions, ToasterActions } from 'actions'
 import { isNil, find, merge, head } from 'ramda'
 import { calculateWinner, reconcileBoard, getPlayer, getNextPlayer } from './TicTacToe.model.js'
 
@@ -59,7 +59,15 @@ class TicTacToeStore {
     if(winner){
       this.state.game.winner = this.state.game.currentPlayer
       this.state.game.winningSquares = winner.squares
+
+      var win = _ => ToasterActions.message(`${this.state.game.currentPlayer.name} won!`, 'SUCCESS')
+      setTimeout(win, 10);
       return
+    }
+
+    if(this.state.game.turns.length === 9){
+      var tie = _ => ToasterActions.message('Tie, ya\'ll both suck', 'ERROR')
+      setTimeout(tie, 10);
     }
 
     this.changePlayer()

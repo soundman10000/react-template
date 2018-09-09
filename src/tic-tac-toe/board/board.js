@@ -23,10 +23,6 @@ export class Board extends Component {
 
   componentDidMount() {
     TicTacToeStore.listen(() => this.onChange())
-    setTimeout(function () {
-      ToasterActions.message('There was an attempt', "SUCCESS")
-    }, 10);
-
     TicTacToeActions.resetGame()
   }
 

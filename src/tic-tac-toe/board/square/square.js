@@ -26,6 +26,10 @@ export class Square extends Component {
     }
 
     var player = find(propEq('id', this.checkedBy))(this.props.players)
+    if(!player){
+      return
+    }
+    
     if(player.color !== this.style.color.color){
       this.setStyleColor(player.color)
       this.forceUpdate()
