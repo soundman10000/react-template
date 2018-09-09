@@ -1,4 +1,5 @@
 @import "theme";
+@import "buttons";
 
 .menu{
   background-color: $primary-background-alternate;
@@ -56,4 +57,13 @@
 
 .active{
   border-bottom: 3px solid $primary-background-color;
+}
+
+.right{
+  float: right;
+  padding-right: $pad-floor;
+}
+
+.toasterOpen{
+  @extend %button-base;
 }

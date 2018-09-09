@@ -2,6 +2,7 @@ import React from 'react'
 import './style.scss'
 import Heading from './heading/heading'
 import Menu from './menu/menu'
+import { Toaster } from './toaster/toaster'
 
 export default React.createClass({
   render(){
@@ -9,6 +10,7 @@ export default React.createClass({
         <Heading />
         <Menu />
         {this.props.children}
+        <Toaster />
       </div>
   }
 })

@@ -1,7 +1,7 @@
 import AltInstance from 'lib'
 import { TicTacToeActions } from 'actions'
 import { isNil, find, merge, head } from 'ramda'
-import { calculateWinner, reconcileBoard, getPlayer, getNextPlayer } from './model'
+import { calculateWinner, reconcileBoard, getPlayer, getNextPlayer } from './TicTacToe.model.js'
 
 class TicTacToeStore {
   constructor(){
@@ -31,17 +31,20 @@ class TicTacToeStore {
   updatePlayerSymbol(e){
     var player = getPlayer(e.playerId)(this.state.game.players)
     player.symbol = e.symbol
-    this.state.game.board = reconcileBoard(this.state.game.turns)(this.state.game.players)
+    this.reprojectGame()
   }
 
   changeColor(e){
     var player = getPlayer(e.playerId)(this.state.game.players)
     player.color = e.color
-    this.state.game.board = reconcileBoard(this.state.game.turns)(this.state.game.players)
   }
 
   changePlayer(){
     this.state.game.currentPlayer = getNextPlayer(this.state.game.currentPlayer.id)(this.state.game.players)
+  }
+
+  reprojectGame(){
+    this.state.game.board = reconcileBoard(this.state.game.turns)(this.state.game.players)
   }
 
   update(turn){
@@ -50,7 +53,7 @@ class TicTacToeStore {
     }
 
     this.state.game.turns.push(turn)
-    this.state.game.board = reconcileBoard(this.state.game.turns)(this.state.game.players)
+    this.reprojectGame()
 
     var winner = calculateWinner(this.state.game.board)
     if(winner){

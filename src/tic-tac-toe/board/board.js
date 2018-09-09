@@ -4,7 +4,7 @@ import { Square } from './square/square'
 import { ResetGame } from './reset/reset'
 import { range } from 'ramda'
 import { TicTacToeStore } from 'stores'
-import { TicTacToeActions } from 'actions'
+import { TicTacToeActions, ToasterActions } from 'actions'
 
 export class Board extends Component {
   constructor(props){
@@ -23,6 +23,10 @@ export class Board extends Component {
 
   componentDidMount() {
     TicTacToeStore.listen(() => this.onChange())
+    setTimeout(function () {
+      ToasterActions.message('There was an attempt', "SUCCESS")
+    }, 10);
+
     TicTacToeActions.resetGame()
   }
 

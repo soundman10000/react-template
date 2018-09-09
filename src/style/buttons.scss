@@ -1,0 +1,44 @@
+@import "theme";
+
+%button-base{
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  min-width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0 $pad-xs;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  color: $primary-text-color;
+  outline: none;
+  font-weight: 400;
+  font-size: $font-size-md;
+  line-height: 36px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in,
+    background-color 0.2s ease-in,
+    color 0.2s ease-in;
+  will-change: box-shadow;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
+  &:hover {
+    background-color: $primary-background-color;
+  }
+
+  &:active {
+    background-color: rgba(158, 158, 158, 0.4);
+  }
+
+  &:focus:not(:active) {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}

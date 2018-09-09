@@ -1,0 +1,42 @@
+@import "theme";
+@import "buttons";
+
+.toasterContainer {
+  box-sizing: border-box;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  width: 100%;
+  min-height: 40px;
+  padding: $pad-floor;
+  background-color: $lighter-black;
+  color: $background-white;
+  line-height: 1.375;
+  text-align: left;
+  opacity: 0.85;
+}
+
+.text{
+  padding: $pad-xs;
+}
+
+.time{
+  padding: 0 $pad-sm;
+}
+
+.closeBtn {
+  @extend %button-base;
+  float: right;
+  color: $background-white;
+}
+
+.prevBtn {
+  @extend %button-base;
+  color: $background-white;
+}
+
+.nextBtn {
+  @extend %button-base;
+  color: $background-white;
+}
