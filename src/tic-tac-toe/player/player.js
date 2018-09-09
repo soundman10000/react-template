@@ -57,7 +57,7 @@ export class Player extends Component{
   }
 
   render(){
-    return <div className="player">
+    return <div className={ this.PlayerIsWinner ? "playerW" : "player"}>
       <Name Player={ this.Player } IsCurrentPlayer={ this.IsCurrentPlayer } />
       <Symbol Player={ this.Player } /><Color Player={ this.Player } />
       <div className="turnContainer">

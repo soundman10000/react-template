@@ -1,13 +1,22 @@
 @import "theme";
 
-.player{
+%pl{
   display: inline-block;
   width: 300px;
   vertical-align: top;
   color: $primary-text-color;
   font-size: $font-size-xl;
-  background-color: $primary-background-alternate;
   margin: 0 $margin-sm;
+}
+
+.player{
+  @extend %pl;
+  background-color: $primary-background-alternate;
+}
+
+.playerW{
+  @extend %pl;
+  background-color: $success-darker-color;
 }
 
 .turnContainer{
