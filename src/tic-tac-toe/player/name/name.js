@@ -40,7 +40,7 @@ export class Name extends Component{
   }
 
   renderStatic(){
-    return <div><h4 onClick={ e => this.editName(e) } className={ this.props.PlayerIsWinner ? 'bannerWin' : 'banner' }>
+    return <div><h4 onClick={ e => this.editName(e) } className='banner'>
         { this.props.Player.name }
       </h4>
       { this.renderUnderline() }

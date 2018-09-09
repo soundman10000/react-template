@@ -42,3 +42,23 @@
     background-color: rgba(0, 0, 0, 0.12);
   }
 }
+
+%form-button {
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: $primary-text-color;
+  font-size: 24px;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  padding-left: $pad-floor;
+  margin-left: $margin-floor;
+  transition: background-color 0.2s,
+    color 0.2s;
+}

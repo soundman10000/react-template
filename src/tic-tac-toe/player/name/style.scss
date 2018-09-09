@@ -1,15 +1,10 @@
 @import "theme";
+@import "buttons";
+@import "form";
 
 .banner{
   margin: 2px;
   cursor: pointer;
-}
-
-.bannerWin{
-  margin: 2px;
-  transition: background-color 0.5s ease;
-  background-color: $success-color;
-  color: $success-darker-color;
 }
 
 .nameContainer{
@@ -20,13 +15,7 @@
   input {
     max-width: 70%;
     padding: 4px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid $primary-text-color;
-    border-radius: 0;
-    color: $primary-text-color;
-    font-size: $font-size-mdl;
-    line-height: $base-line-height;
+    @extend %input-base;
   }
 }
 .underline {
@@ -52,23 +41,7 @@
 }
 
 .btnConfirm{
-  min-width: 30px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 50%;
-  background-color: transparent;
-  color: $primary-text-color;
-  font-size: 24px;
-  line-height: normal;
-  text-align: center;
-  letter-spacing: 0;
-  vertical-align: middle;
-  cursor: pointer;
-  padding-left: $pad-floor;
-  margin-left: $margin-floor;
-  transition: background-color 0.2s,
-    color 0.2s;
+  @extend %form-button;
   &:hover,
   &:active,
   &:focus:not(:active) {
@@ -78,23 +51,7 @@
 }
 
 .btnCancel{
-  min-width: 30px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 50%;
-  background-color: transparent;
-  color: $primary-text-color;
-  font-size: 24px;
-  line-height: normal;
-  text-align: center;
-  letter-spacing: 0;
-  vertical-align: middle;
-  cursor: pointer;
-  padding-left: 6px;
-  margin-left: $margin-floor;
-  transition: background-color 0.2s,
-    color 0.2s;
+  @extend %form-button;
   &:hover,
   &:active,
   &:focus:not(:active) {

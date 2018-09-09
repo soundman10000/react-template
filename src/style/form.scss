@@ -1,0 +1,11 @@
+@import "theme";
+
+%input-base{
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $primary-text-color;
+  border-radius: 0;
+  color: $primary-text-color;
+  font-size: $font-size-mdl;
+  line-height: $base-line-height;
+}
