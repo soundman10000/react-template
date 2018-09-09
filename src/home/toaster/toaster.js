@@ -22,6 +22,10 @@ export class Toaster extends Component{
 
   onChange(){
     this.setState(ToasterStore.getState())
+    if(this.state.messages.length === 0){
+      return
+    }
+
     switch (this.state.messages[this.state.currentMessage - 1].status) {
       case 'SUCCESS':
         this.setStyleColor('#1E5121')
@@ -61,7 +65,7 @@ export class Toaster extends Component{
           <button className="nextBtn" onClick={() => ToasterActions.changeMessage(true)} ><i className="fa fa-fw fa-chevron-right"/></button>
         </span>
         { this.renderMesssages() }
-        <button className="closeBtn" onClick={() => ToasterActions.toggleToaster(false)} ><i className="fa fa-fw fa-times"/></button>
+        <button className="closeBtn" onClick={() => ToasterActions.toggleToaster(false, false)} ><i className="fa fa-fw fa-times"/></button>
       </div>
     }
 

@@ -8,7 +8,7 @@ class ToasterStore {
     this.state = {
       messages: [],
       isOpen: false,
-      currentMessage: 0,
+      currentMessage: 1,
     }
 
     this.bindListeners({
@@ -20,7 +20,7 @@ class ToasterStore {
 
   message(msg){
     this.state.messages.push(assoc('time', new Moment())(msg))
-    this.toggleToaster(true)
+    this.toggleToaster({on: true, closeOnComplete: true})
   }
 
   changeMessage(forward){
@@ -36,13 +36,21 @@ class ToasterStore {
     }
   }
 
-  toggleToaster(on){
+  toggleToaster({on, closeOnComplete}){
     this.state.isOpen = on
     if(!this.state.isOpen){
       return
     }
 
     this.state.currentMessage = this.state.messages.length
+
+    if(closeOnComplete){
+      var close = c => _ => {
+        c.state.isOpen = false
+        c.emitChange()
+      }
+      setTimeout(close(this), 2500);
+    }
   }
 }
 

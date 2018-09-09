@@ -3,7 +3,7 @@ import { compose, range, map, head } from 'ramda'
 
 class ToasterActions {
   toggleToaster(on, closeOnComplete){
-    return on
+    return ({ on, closeOnComplete })
   }
 
   message(message, status){

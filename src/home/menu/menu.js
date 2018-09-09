@@ -10,7 +10,7 @@ export default React.createClass({
       <Link className="home" to=""><i className="fa fa-fw fa-home"></i></Link>
       <Link className="item" activeClassName="active" to="ttt"><span>Tic Tac Toe</span></Link>
       <span className="right">
-      <button onClick={() => ToasterActions.toggleToaster(true)} className="toasterOpen">
+      <button onClick={() => ToasterActions.toggleToaster(true, false)} className="toasterOpen">
         <i className="fa fa-envelope" />
       </button>
       </span>
