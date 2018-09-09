@@ -32,6 +32,10 @@ class TicTacToeActions {
     })
   }
 
+  resetTurn(playerid, turn){
+    return { playerid, turn }
+  }
+
   updateGame(playerid, square) {
     return { playerid, square }
   }

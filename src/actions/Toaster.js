@@ -2,7 +2,7 @@ import AltInstance from 'lib'
 import { compose, range, map, head } from 'ramda'
 
 class ToasterActions {
-  toggleToaster(on){
+  toggleToaster(on, closeOnComplete){
     return on
   }
 

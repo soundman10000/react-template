@@ -15,6 +15,7 @@ class TicTacToeStore {
       updatePlayerName: TicTacToeActions.UPDATE_PLAYER_NAME,
       updatePlayerSymbol: TicTacToeActions.UPDATE_PLAYER_SYMBOL,
       changeColor: TicTacToeActions.UPDATE_COLOR,
+      resetTurn: TicTacToeActions.RESET_TURN,
     })
   }
 
@@ -26,6 +27,10 @@ class TicTacToeStore {
   updatePlayerName(e){
     var player = getPlayer(e.playerId)(this.state.game.players)
     player.name = e.newName
+  }
+
+  resetTurn(turn){
+    
   }
 
   updatePlayerSymbol(e){

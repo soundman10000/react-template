@@ -6,6 +6,7 @@ import { find, filter, propEq } from 'ramda'
 import { Name } from './name/name'
 import { Symbol } from './symbol/symbol'
 import { Color } from './color/color'
+import { FireWorks } from './fireworks/fireworks'
 
 export class Player extends Component{
   constructor(props){
@@ -58,6 +59,7 @@ export class Player extends Component{
 
   render(){
     return <div className={ this.PlayerIsWinner ? "playerW" : "player"}>
+      {this.PlayerIsWinner ? <FireWorks /> : null }
       <Name Player={ this.Player } IsCurrentPlayer={ this.IsCurrentPlayer } />
       <Symbol Player={ this.Player } /><Color Player={ this.Player } />
       <div className="turnContainer">

@@ -16,7 +16,10 @@
 
 .playerW{
   @extend %pl;
-  background-color: $success-darker-color;
+  background-color: $primary-background-alternate;
+  box-shadow:
+     0 0 50px $success-darker-color,
+     -10px 0 80px $success-color,
 }
 
 .turnContainer{
